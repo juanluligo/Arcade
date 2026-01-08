@@ -1,0 +1,23 @@
+{
+  "name": "mini-arcade",
+  "version": "1.0.0",
+  "description": "Mini Arcade - Colección de juegos clásicos en React",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["react", "games", "snake", "tictactoe", "memory"],
+  "author": "Juan",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.12.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.1"
+  }
+}

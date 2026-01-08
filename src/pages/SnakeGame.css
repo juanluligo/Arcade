@@ -1,0 +1,103 @@
+/* ========================================
+   SNAKE GAME STYLES
+   ======================================== */
+
+.snake-container {
+  max-width: 500px;
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.high-score {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: var(--warning);
+  padding: 0.8rem 1.2rem;
+  background: rgba(253, 203, 110, 0.1);
+  border-radius: 10px;
+  border: 2px solid var(--warning);
+}
+
+.canvas-wrapper {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 0 4px var(--bg-card),
+    0 0 0 6px var(--primary),
+    0 0 30px rgba(108, 92, 231, 0.3);
+}
+
+.game-canvas {
+  display: block;
+  background: #0a0a0f;
+  image-rendering: pixelated;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.game-overlay.game-over {
+  background: rgba(214, 48, 49, 0.1);
+}
+
+.overlay-content {
+  text-align: center;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.overlay-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.overlay-content h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.game-over .overlay-content h2 {
+  color: var(--danger);
+  text-shadow: 0 0 20px rgba(214, 48, 49, 0.5);
+}
+
+.overlay-content p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.final-score {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+  color: var(--success) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Mobile Controls */
+@media (max-width: 500px) {
+  .game-canvas {
+    width: 100%;
+    height: auto;
+  }
+  
+  .score-row {
+    flex-direction: column;
+  }
+}

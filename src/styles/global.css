@@ -1,0 +1,305 @@
+/* 
+GLOBAL STYLES - MINI ARCADE
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colores principales */
+  --primary: #6c5ce7;
+  --primary-dark: #5b4cdb;
+  --secondary: #00cec9;
+  --accent: #fd79a8;
+  --success: #00b894;
+  --warning: #fdcb6e;
+  --danger: #d63031;
+  
+  /* Fondos */
+  --bg-dark: #0a0a0f;
+  --bg-card: #1a1a2e;
+  --bg-card-hover: #252545;
+  
+  /* Texto */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-muted: #6c6c7c;
+  
+  /* Efectos */
+  --glow-primary: 0 0 20px rgba(108, 92, 231, 0.5);
+  --glow-secondary: 0 0 20px rgba(0, 206, 201, 0.5);
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: var(--glow-primary); }
+  50% { box-shadow: 0 0 40px rgba(108, 92, 231, 0.8); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   LAYOUT COMPONENTS
+   ======================================== */
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 206, 201, 0.1) 0%, transparent 50%),
+    var(--bg-dark);
+}
+
+.game-container {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: var(--glow-primary);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(108, 92, 231, 0.7);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--text-secondary);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success), #00a185);
+  color: white;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger), #c0392b);
+  color: white;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+.title-arcade {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   BACK LINK
+   ======================================== */
+
+.back-link {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.back-link:hover {
+  color: var(--primary);
+  transform: translateX(-5px);
+}
+
+.back-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========================================
+   SCORE DISPLAY
+   ======================================== */
+
+.score-display {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: var(--success);
+  padding: 1rem 2rem;
+  background: rgba(0, 184, 148, 0.1);
+  border-radius: 10px;
+  border: 2px solid var(--success);
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   GAME MESSAGES
+   ======================================== */
+
+.game-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.game-over-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: var(--danger);
+  text-shadow: 0 0 20px rgba(214, 48, 49, 0.5);
+  margin-bottom: 1rem;
+}
+
+.game-win-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: var(--success);
+  text-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   INSTRUCTIONS
+   ======================================== */
+
+.instructions {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.instructions p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+
+.instructions kbd {
+  background: var(--bg-card);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--text-muted);
+  font-family: monospace;
+  font-size: 0.8rem;
+  margin: 0 0.2rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .title-arcade {
+    font-size: 1.5rem;
+  }
+  
+  .game-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .back-link {
+    top: 1rem;
+    left: 1rem;
+  }
+}
