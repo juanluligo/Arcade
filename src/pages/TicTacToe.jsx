@@ -311,8 +311,7 @@ function TicTacToe() {
         {/* Algorithm info */}
         {gameMode === 'ai' && (
           <div className="algo-info">
-            <p>🧠 <strong>Algoritmo Minimax</strong> con poda Alpha-Beta</p>
-            <p>Complejidad: O(b^d) → Optimizado con poda</p>
+           
           </div>
         )}
       </div>
